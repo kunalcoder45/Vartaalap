@@ -1,15 +1,17 @@
+// app/api/auth/[...nextauth]/route.js
+
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from '../../../../lib/mongodb.js';
+import clientPromise from '../../../../lib/mongodb.js'; // use @ path if set in jsconfig/tsconfig
 
-const handler = NextAuth({
+export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(clientPromise),
   session: {
     strategy: 'jwt',
-    maxAge: 24 * 60 * 60,
+    maxAge: 24 * 60 * 60, // 1 day
   },
   providers: [
     CredentialsProvider({
@@ -97,6 +99,8 @@ const handler = NextAuth({
   },
   debug: process.env.NODE_ENV === 'development',
   trustHost: true,
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
