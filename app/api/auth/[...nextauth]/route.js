@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from '@/lib/mongodb'; // adjust path as needed
+import clientPromise from '../../../../lib/mongodb';
 
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
