@@ -27,7 +27,7 @@
 export const dynamic = "force-dynamic";
 
 import { getServerSession } from "next-auth";
-import authOptions from "../../lib/authOptions.js"; // Adjust the path as necessary
+import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import SessionUser from "./SessionUser";
 import LogoutButton from "../../components/LogoutButton";
