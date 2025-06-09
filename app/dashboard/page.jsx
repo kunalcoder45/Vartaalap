@@ -23,6 +23,9 @@
 //   );
 // }
 // app/dashboard/page.jsx
+
+export const dynamic = "force-dynamic";
+
 import { getServerSession } from "next-auth";
 import authOptions from "../../lib/authOptions.js"; // Adjust the path as necessary
 import { redirect } from "next/navigation";
