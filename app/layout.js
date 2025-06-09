@@ -1,6 +1,7 @@
+// app/layout.js
 import './globals.css';
 import { Varta } from 'next/font/google';
-import ClientWrapper from './client-wrapper';
+import SessionWrapper from './session-wrapper';
 
 const varta = Varta({
   subsets: ['latin'],
@@ -17,9 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={varta.variable}>
       <body>
-        <ClientWrapper>
+        <SessionWrapper>
           {children}
-        </ClientWrapper>
+        </SessionWrapper>
       </body>
     </html>
   );

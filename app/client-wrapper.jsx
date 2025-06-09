@@ -1,7 +1,13 @@
+// app/client-wrapper.jsx
 'use client';
 
-import { SessionProvider } from 'next-auth/react';
+import { useEffect } from 'react';
 
 export default function ClientWrapper({ children }) {
-  return <SessionProvider>{children}</SessionProvider>;
+  useEffect(() => {
+    // Client-side initialization code if needed
+    console.log('Client wrapper initialized');
+  }, []);
+
+  return <>{children}</>;
 }
