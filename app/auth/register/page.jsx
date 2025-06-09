@@ -28,7 +28,7 @@ export default function RegisterPage() {
         e.preventDefault();
 
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/auth/register`, formData);
 
             if (res.status !== 200 && res.status !== 201) {
                 alert(res.data.message || 'Registration failed');
