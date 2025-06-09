@@ -65,7 +65,7 @@ import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import clientPromise from '../../../../lib/mongodb';
 import authOptions from '../../../../lib/authOptions';
 
-export const authOptions = {
+export const routes = {
     secret: process.env.NEXTAUTH_SECRET,
     adapter: MongoDBAdapter(clientPromise),
     session: {
