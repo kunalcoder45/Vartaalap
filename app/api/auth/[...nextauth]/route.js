@@ -56,11 +56,14 @@
 // const handler = NextAuth(authOptions);
 // export { handler as GET, handler as POST };
 // app/api/auth/[...nextauth]/route.js
+
+
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import clientPromise from '../../../../lib/mongodb';
+import authOptions from '../../../../lib/authOptions';
 
 export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET,
@@ -188,5 +191,7 @@ export const authOptions = {
     trustHost: true, // Add this for localhost development
 };
 
+
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
